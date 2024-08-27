@@ -1,4 +1,3 @@
-// src/DrumMachine.js
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 
@@ -16,13 +15,29 @@ const drumPads = [
 
 function DrumMachine() {
   const [display, setDisplay] = useState('');
+  const [volume, setVolume] = useState(1); // Add volume state
 
   const playSound = (key) => {
     const audio = document.getElementById(key);
     if (audio && audio.play) {
+      audio.volume = volume; // Set volume before playing
+      audio.currentTime = 0; // Reset audio to start
       audio.play();
       setDisplay(drumPads.find(pad => pad.key === key).sound);
     }
+  };
+
+  const handleVolumeChange = (e) => {
+    const newVolume = e.target.value / 100;
+    setVolume(newVolume);
+    
+    // Update volume for all audio elements
+    drumPads.forEach(pad => {
+      const audio = document.getElementById(pad.key);
+      if (audio) {
+        audio.volume = newVolume;
+      }
+    });
   };
 
   useEffect(() => {
@@ -62,7 +77,14 @@ function DrumMachine() {
           </div>
           <div id="display">{display}</div>
           <div className="volume-slider">
-            <input type="range" min="0" max="100" className="volume-range" />
+            <input 
+              type="range" 
+              min="0" 
+              max="100" 
+              value={volume * 100} 
+              className="volume-range" 
+              onChange={handleVolumeChange}
+            />
           </div>
           <div className="control">
             <p>Bank</p>
