@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #8d8d8d;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#drum-machine {
+  display: flex;
+  background-color: #b3b3b3;
+  width: 660px;
+  height: 320px;
+  margin: auto;
+  border: 5px solid #ffa500;
+  border-radius: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.drum-pads {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.drum-pad {
+  width: 100px;
+  height: 80px;
+  border: none;
+  border-radius: 5px;
+  background-color: #808080;
+  color: black;
+  font-size: 1.5em;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.controls {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#display {
+  background-color: #808080;
+  width: 200px;
+  height: 50px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin: 10px 0;
 }
 
-.App-link {
-  color: #61dafb;
+.volume-slider {
+  width: 200px;
+  height: 10px;
+  background-color: #000;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.slider-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #0000ff;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+}
+
+.power {
+  display: flex;
+  align-items: center;
+}
+
+.switch {
+  width: 50px;
+  height: 20px;
+  background-color: #000;
+  margin-left: 10px;
+  position: relative;
+}
+
+.switch-toggle {
+  width: 20px;
+  height: 18px;
+  background-color: #0000ff;
+  position: absolute;
+  right: 1px;
+  top: 1px;
 }
