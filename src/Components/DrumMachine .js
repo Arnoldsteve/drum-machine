@@ -53,19 +53,27 @@ function DrumMachine() {
         ))}
       </div>
       <div className="controls">
-        <div className="logo">FCC <i className="fa fa-free-code-camp" /></div>
-        <div id="display">{display}</div>
-        <div className="volume-slider">
-          <div className="slider-track">
-            <div className="slider-thumb"></div>
+        <div className="power-bank">
+          <div className="control">
+            <p>Power</p>
+            <div className="select">
+              <div className="inner"></div>
+            </div>
+          </div>
+          <div id="display">{display}</div>
+          <div className="volume-slider">
+            <input type="range" min="0" max="100" className="volume-range" />
+          </div>
+          <div className="control">
+            <p>Bank</p>
+            <div className="select">
+              <div className="inner"></div>
+            </div>
           </div>
         </div>
-        <div className="power">
-          Power
-          <div className="switch">
-            <div className="switch-toggle"></div>
-          </div>
-        </div>
+      </div>
+      <div className="logo">
+        FCC <i className="fa fa-free-code-camp" />
       </div>
     </div>
   );
